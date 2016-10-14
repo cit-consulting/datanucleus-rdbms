@@ -4274,6 +4274,7 @@ public class QueryToSQLMapper extends AbstractExpressionEvaluator implements Que
 
         if (right instanceof CollectionExpression || right instanceof org.datanucleus.store.rdbms.sql.expression.ArrayExpression)
         {
+            right.setJavaTypeMapping(left.getJavaTypeMapping());
             // myElement IN myCollection
             if (right.getParameterName() != null)
             {
@@ -4313,6 +4314,7 @@ public class QueryToSQLMapper extends AbstractExpressionEvaluator implements Que
 
         if (right instanceof CollectionExpression)
         {
+            right.setJavaTypeMapping(left.getJavaTypeMapping());
             // myElement IN myCollection
             if (right.getParameterName() != null)
             {

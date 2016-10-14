@@ -121,7 +121,13 @@ public class CollectionLiteral extends CollectionExpression implements SQLLitera
                 Object current = it.next();
                 if (current != null)
                 {
-                    JavaTypeMapping m = storeMgr.getSQLExpressionFactory().getMappingForType(current.getClass(), false);
+                    JavaTypeMapping m = getJavaTypeMapping();
+
+                    if(m == null)
+                    {
+                         m = storeMgr.getSQLExpressionFactory().getMappingForType(current.getClass(), false);
+                    }
+
                     SQLExpression expr = storeMgr.getSQLExpressionFactory().newLiteral(stmt, m, current);
 
                     // Append the SQLExpression (should be a literal) for the current element.
