@@ -8,18 +8,18 @@
     </parent>
 
     <artifactId>datanucleus-rdbms</artifactId>
-    <version>5.1.7-SNAPSHOT</version>
+    <version>5.1.6_CITC1-SNAPSHOT</version>
 
     <name>DataNucleus RDBMS plugin</name>
     <description>
         Plugin for DataNucleus providing persistence to RDBMS datastores.
     </description>
 
-    <scm>
-        <connection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</connection>
-        <developerConnection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</developerConnection>
-        <url>https://github.com/datanucleus/${project.artifactId}</url>
-    </scm>
+<!--    <scm>-->
+<!--        <connection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</connection>-->
+<!--        <developerConnection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</developerConnection>-->
+<!--        <url>https://github.com/datanucleus/${project.artifactId}</url>-->
+<!--    </scm>-->
 
     <properties>
         <dn.core.version>5.1.0-release</dn.core.version>
@@ -91,7 +91,7 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-core</artifactId>
-            <version>[${dn.core.version}, )</version>
+            <version>5.1.6</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -217,4 +217,11 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>CITCMain</id>
+            <name>CITC OPENSOURCE</name>
+            <url>https://maven1.citc.ru/content/repositories/citc-opensource</url>
+        </repository>
+    </distributionManagement>
 </project>

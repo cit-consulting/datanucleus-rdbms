@@ -878,8 +878,7 @@ public class RDBMSStoreManager extends AbstractStoreManager implements BackedSCO
     public void setObjectIsInsertedToLevel(ObjectProvider op, DatastoreClass table)
     {
         insertedDatastoreClassByObjectProvider.put(op, table);
-
-        if (table.managesClass(op.getClassMetaData().getFullClassName()))
+        if (table.managesClass(op.getClassMetaData().getFullClassName()) || (!table.isSuperDatastoreClass(table) && table.getBaseDatastoreClass().managesClass(op.getClassMetaData().getFullClassName())))
         {
             // Full insertion has just completed so update activity state in StateManager
             op.changeActivityState(ActivityState.INSERTING_CALLBACKS);
